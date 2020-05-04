@@ -1,0 +1,211 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Dequantization Demo Page</title>
+  <!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <style>
+    .example {
+    font-size:20px;
+    padding-left:10px;
+    }  
+    img {
+      display:block;
+      width:100%;
+    }
+    td{
+        width:400px;
+        text-align:center;
+        white-space:nowrap;
+        padding-left:15px;
+    }
+</style>
+</head>
+
+<body style='padding-left: 20px'>
+  <h1 style="display:inline">Audio Dequantization for High Fidelity Audio Generation in Flow-based Neural Vocoder</h1>
+  <br></br>
+  <br></br>
+  <h2>Abstract</h2>
+  <p style="width:65%">In recent works, a flow-based network has shown significant improvement in real-time speech generation task. The sequence of flow operations allows the model to convert Gaussian latent variables into a waveform signal. However, training continuous density model on discrete data may lead to degraded performance of the model due to the topological difference between latent and actual distribution. To resolve this problem, we propose various audio dequantization methods in flow-based neural vocoder for high fidelity audio generation. Data dequantization is a well-known method in the image generation field, but such an effect in the audio domain is yet to be found. For this reason, we implement various dequantization methods and investigate the effect on the generated audio. In addition, we present various objective performance assessments and subjective evaluation to show that audio dequantization improves generated audio quality. From our experiments, we demonstrate that using audio dequantization can produce a better harmonic structure with less noise artifacts.</p>
+  <h2>Demo</h2>
+  <table style='padding-left: 20px; width=100%'>
+    <tbody>
+      <p class="example"><b>Male1 : “Many complicated ideas about the rainbow have been formed.”</b></p>
+      <tr>
+        <td><img src="./samples/Male1/ground.png"></td>
+        <td><img src="./samples/Male1/baseline.png"></td>
+        <td><img src="./samples/Male1/uniform.png"></td>
+        <td><img src="./samples/Male1/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_100_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Male1/gaussian_sig.png"></td>
+        <td><img src="./samples/Male1/gaussian_tanh.png"></td>
+        <td><img src="./samples/Male1/flow_shal.png"></td>
+        <td><img src="./samples/Male1/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_100_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_100_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <p class="example"><b>Male2 : “They did not replace it with a conviction for culpable homicide."</b></p>
+      <tr>
+        <td><img src="./samples/Male2/ground.png"></td>
+        <td><img src="./samples/Male2/baseline.png"></td>
+        <td><img src="./samples/Male2/uniform.png"></td>
+        <td><img src="./samples/Male2/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_0_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Male2/gaussian_sig.png"></td>
+        <td><img src="./samples/Male2/gaussian_tanh.png"></td>
+        <td><img src="./samples/Male2/flow_shallow.png"></td>
+        <td><img src="./samples/Male2/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_0_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_0_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <p class="example"><b>Male3 : “I want to give everything to Rangers while I am with the club."</b></p>
+      <tr>
+        <td><img src="./samples/Male3/ground.png"></td>
+        <td><img src="./samples/Male3/baseline.png"></td>
+        <td><img src="./samples/Male3/uniform.png"></td>
+        <td><img src="./samples/Male3/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_5_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Male3/gaussian_sig.png"></td>
+        <td><img src="./samples/Male3/gaussian_tanh.png"></td>
+        <td><img src="./samples/Male3/flow_shallow.png"></td>
+        <td><img src="./samples/Male3/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_5_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_5_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <p class="example"><b>Female1 : "These take the shape of a long round arch, with its path high above, and its two ends apparently beyond the horizon.”</b></p>
+      <tr>
+        <td><img src="./samples/Female1/ground.png"></td>
+        <td><img src="./samples/Female1/baseline.png"></td>
+        <td><img src="./samples/Female1/uniform.png"></td>
+        <td><img src="./samples/Female1/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_108_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Female1/gaussian_sig.png"></td>
+        <td><img src="./samples/Female1/gaussian_tanh.png"></td>
+        <td><img src="./samples/Female1/flow_shallow.png"></td>
+        <td><img src="./samples/Female1/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_108_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_108_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <p class="example"><b>Female2 : “The actual primary rainbow observed is said to be the effect of super-imposition of a number of bows."</b></p>
+      <tr>
+        <td><img src="./samples/Female2/ground.png"></td>
+        <td><img src="./samples/Female2/baseline.png"></td>
+        <td><img src="./samples/Female2/uniform.png"></td>
+        <td><img src="./samples/Female2/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_1_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Female2/gaussian_sig.png"></td>
+        <td><img src="./samples/Female2/gaussian_tanh.png"></td>
+        <td><img src="./samples/Female2/flow_shallow.png"></td>
+        <td><img src="./samples/Female2/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_1_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_1_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <p class="example"><b>Female3 : "Aristotle thought that the rainbow was caused by reflection of the sun's rays by the rain."</b></p>
+      <tr>
+        <td><img src="./samples/Female3/ground.png"></td>
+        <td><img src="./samples/Female3/baseline.png"></td>
+        <td><img src="./samples/Female3/uniform.png"></td>
+        <td><img src="./samples/Female3/uniform_iw.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_104_0.8.wav"></audio></td>
+      </tr>
+      <tr>
+        <td><img src="./samples/Female3/gaussian_sig.png"></td>
+        <td><img src="./samples/Female3/gaussian_tanh.png"></td>
+        <td><img src="./samples/Female3/flow_shallow.png"></td>
+        <td><img src="./samples/Female3/flow_dense.png"></td>
+      </tr>
+      <tr>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_104_0.8.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
