@@ -1,4 +1,4 @@
-﻿<html lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Audio Dequantization Demo Page</title>
@@ -29,6 +29,13 @@
 <body style='padding-left: 20px'>
   <h1 style="display:inline">Audio Dequantization for High Fidelity Audio Generation in Flow-based Neural Vocoder</h1>
   <br></br>
+  <br></br>
+  <br></br>
+  <h2>Authors</h2>
+  <p style="width:65%">Hyun-Wook Yoon(Korea University), hw_yoon@korea.ac.kr</p>
+  <p style="width:65%">Sang-Hoon Lee(Korea University), sh_lee@korea.ac.kr</p>
+  <p style="width:65%">Hyeong-Rae Noh(Korea University), hr_noh@korea.ac.kr</p>
+  <p style="width:65%">Seong-Whan Lee(Korea University), sw.lee@korea.ac.kr</p>
   <br></br>
   <h2>Abstract</h2>
   <p style="width:65%">In recent works, a flow-based network has shown significant improvement in real-time speech generation task. The sequence of flow operations allows the model to convert Gaussian latent variables into a waveform signal. However, training continuous density model on discrete data may lead to degraded performance of the model due to the topological difference between latent and actual distribution. To resolve this problem, we propose various audio dequantization methods in flow-based neural vocoder for high fidelity audio generation. Data dequantization is a well-known method in the image generation field, but such an effect in the audio domain is yet to be found. For this reason, we implement various dequantization methods and investigate the effect on the generated audio. In addition, we present various objective performance assessments and subjective evaluation to show that audio dequantization improves generated audio quality. From our experiments, we demonstrate that using audio dequantization can produce a better harmonic structure with less noise artifacts.</p>
@@ -190,7 +197,7 @@
   <br>
   <table>
     <tbody>
-      <p class="example"><b>Female3 : "Several other countries are also reported to be interested in the format."</b></p>
+      <p class="example"><b>Female3 : "Aristotle thought that the rainbow was caused by reflection of the sun's rays by the rain."</b></p>
       <tr>
         <td><img src="./samples/Female3/ground.png"></td>
         <td><img src="./samples/Female3/baseline.png"></td>
@@ -198,10 +205,10 @@
         <td><img src="./samples/Female3/uniform_iw.png"></td>
       </tr>
       <tr>
-        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_2_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/1.Ground_Truth/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/2.Baseline/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/3.Uniform/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/4.Uniform_IW/generate_600000_104_0.8.wav"></audio></td>
       </tr>
       <tr>
         <td><img src="./samples/Female3/gaussian_sig.png"></td>
@@ -210,10 +217,10 @@
         <td><img src="./samples/Female3/flow_dense.png"></td>
       </tr>
       <tr>
-        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_2_0.8.wav"></audio></td>
-        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_2_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/5.Gaussian_Sig/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/6.Gaussian_Tanh/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/7.Flow_Shallow/generate_600000_104_0.8.wav"></audio></td>
+        <td><audio controls=""><source src="./samples/8.Flow_Dense/generate_600000_104_0.8.wav"></audio></td>
       </tr>
     </tbody>
   </table>
